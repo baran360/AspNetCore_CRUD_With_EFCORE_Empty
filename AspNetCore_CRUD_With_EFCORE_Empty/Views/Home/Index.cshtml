@@ -1,0 +1,90 @@
+﻿@model IEnumerable<AspNetCore_CRUD_With_EFCORE_Empty.Models.Student>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link src="~/lib/bootstrap/dist/css/bootstrap.css"/>
+	@*<a href="~/lib/bootstrap/dist/css/bootstrap.css.map">~/lib/bootstrap/dist/css/bootstrap.css.map</a>
+	<a href="~/lib/bootstrap/dist/css/bootstrap.min.css.map">~/lib/bootstrap/dist/css/bootstrap.min.css.map</a>
+	<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.css.map">~/lib/bootstrap/dist/css/bootstrap.rtl.css.map</a>
+	<a href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map">~/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map</a>
+    *@
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+	<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+	<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <p>
+        <a asp-action="Create" class="btn btn-success">New Student</a>
+    </p>
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Department)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.StudentNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.passwordagain)
+                </th>
+                <th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Age)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentNumber)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.password)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ogrencino)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ogrencino)
+                    </td>*@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.StudentID" class="btn btn-primary">UPDATE</a> |
+                        <a asp-action="Details" asp-route-id="@item.StudentID" class="btn btn-secondary">DETAILS</a> |
+                        <a asp-action="Delete" asp-route-id="@item.StudentID" class="btn btn-danger">DELETE</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
